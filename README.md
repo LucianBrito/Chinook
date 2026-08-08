@@ -203,15 +203,15 @@ Foi criada uma tabela Calendario independente, gerada via consulta em branco no 
 
 Todas as medidas foram organizadas em uma tabela dedicada, #Medidas.
 
-Receita Total soma o valor final vendido (LineTotal). Qtd Faixas Vendidas soma as quantidades. Qtd Faturas e Qtd Clientes Ativos contam faturas e clientes distintos. Ticket Medio e Receita Media por Cliente dividem a receita total pela quantidade de faturas e de clientes, respectivamente.
+* Receita Total soma o valor final vendido (LineTotal). Qtd Faixas Vendidas soma as quantidades. Qtd Faturas e Qtd Clientes Ativos contam faturas e clientes distintos. Ticket Medio e Receita Media por Cliente dividem a receita total pela quantidade de faturas e de clientes, respectivamente.
 
-Usando a tabela Calendario, foram criadas medidas de tempo: Receita Mes Anterior e Receita Ano Anterior trazem a receita de períodos comparativos, usadas para calcular Variacao MoM e Variacao YoY em percentual. Receita YTD acumula a receita desde o início do ano, e Receita Acumulada 12 Meses soma os últimos doze meses corridos.
+* Usando a tabela Calendario, foram criadas medidas de tempo: Receita Mes Anterior e Receita Ano Anterior trazem a receita de períodos comparativos, usadas para calcular Variacao MoM e Variacao YoY em percentual. Receita YTD acumula a receita desde o início do ano, e Receita Acumulada 12 Meses soma os últimos doze meses corridos.
 
-Top Genero e Top Artista identificam o gênero e artista com maior receita no filtro atual. Ranking Genero e Ranking Artista atribuem posição a cada um com base na receita.
+* Top Genero e Top Artista identificam o gênero e artista com maior receita no filtro atual. Ranking Genero e Ranking Artista atribuem posição a cada um com base na receita.
 
-% Receita do Genero e % Receita do Pais calculam a participação de cada item no total geral, ignorando o filtro do próprio campo.
+* % Receita do Genero e % Receita do Pais calculam a participação de cada item no total geral, ignorando o filtro do próprio campo.
 
-Qtd Paises Ativos conta países com vendas registradas, e Receita Pais Top1 traz a receita do país líder em faturamento._
+* Qtd Paises Ativos conta países com vendas registradas, e Receita Pais Top1 traz a receita do país líder em faturamento._
 
 <image src = "">
   

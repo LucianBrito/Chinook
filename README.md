@@ -172,10 +172,64 @@ Vamos entender a estrutura, qualidade e distribuição dos dados.
 
 <a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
+### Etapa de Transformação de Dados, Power Query ( Dashboard com foco em Vendas Gerais)
 
+Nesta etapa foram avaliadas as sete tabelas originais da base Chinook utilizadas no Dashboard 1, Streaming Dark, com foco em vendas gerais. O objetivo foi remover colunas não utilizadas, ajustar tipos de dados, renomear campos para nomenclatura de negócio e tratar valores nulos.
+
+* Na tabela Invoice foram removidas as colunas de endereço detalhado, como BillingAddress, BillingCity, BillingState e BillingPostalCode, mantendo apenas InvoiceId, CustomerId, InvoiceDate, BillingCountry e Total, este último renomeado para InvoiceTotal. Os tipos de dados de InvoiceDate e Total foram confirmados como Data e Número Decimal respectivamente. A coluna BillingCountry foi verificada quanto a valores nulos, sendo tratada quando necessário.
+
+* Na tabela InvoiceLine foram mantidas todas as colunas relevantes, InvoiceLineId, InvoiceId, TrackId, UnitPrice e Quantity, com os tipos de dados confirmados como Número Decimal para UnitPrice e Número Inteiro para Quantity. Foi identificada a presença de uma coluna adicional de desconto, que precisa ter sua fórmula de cálculo de receita por linha validada antes da criação das medidas.
+
+* Na tabela Customer foram removidas as colunas de contato e endereço, como Company, Address, City, State, PostalCode, Phone, Fax e SupportRepId, mantendo apenas CustomerId, FirstName e LastName, suficientes para a contagem de clientes ativos no dashboard de vendas gerais.
+
+* Na tabela Track foram removidas as colunas MediaTypeId, Composer, Milliseconds e Bytes, mantendo TrackId, Name, AlbumId, GenreId e UnitPrice, necessárias para a ligação entre faixa, álbum e gênero. Foi identificada a existência de registros com GenreId nulo, que precisam ser tratados como categoria não informada.
+
+ * Na tabela Genre foram mantidas as duas colunas originais, sendo a coluna Name renomeada para Genero, visando padronização de nomenclatura nas medidas e visuais.
+
+* Na tabela Album foram mantidas as três colunas originais, sendo a coluna Title renomeada para Album, mantendo AlbumId e ArtistId para a ligação com a tabela Artist.
+
+* Na tabela Artist foram mantidas as duas colunas originais, sendo a coluna Name renomeada para Artista.
+
+### Etapa de Modelagem de Dados
+
+Foi criada uma tabela Calendario independente, gerada via consulta em branco no Power Query, com o intervalo de datas calculado a partir do valor mínimo e máximo da coluna InvoiceDate da tabela Invoice. Essa tabela contém as colunas Data, Ano, MesNumero, MesNome, AnoMes, Trimestre, DiaSemanaNumero, DiaSemanaNome e FimDeSemana, sendo marcada como tabela de datas oficial do modelo, com a coluna Data definida como chave única de data.
+
+* O modelo relacional resultante segue o formato de esquema estrela, com a tabela Invoice funcionando como tabela de fatos central. As tabelas Customer e Calendario se relacionam diretamente com Invoice em cardinalidade um para muitos, sendo Customer e Calendario o lado um, e Invoice o lado muitos. A tabela InvoiceLine se relaciona com Invoice em cardinalidade muitos para um, funcionando como uma segunda tabela de fatos no nível de item vendido. A tabela InvoiceLine também se relaciona com Track em cardinalidade um para muitos, sendo Track o lado um. A tabela Track, por sua vez, se relaciona com Genre e com Album, ambas em cardinalidade um para muitos, sendo Genre e Album o lado um. A tabela Album se relaciona com Artist em cardinalidade um para muitos, sendo Artist o lado um.
+
+* Dois pontos de atenção foram identificados nesta etapa e precisam de ajuste antes do avanço para as medidas DAX. O primeiro é a duplicidade de informação temporal, com as colunas Ano e Nome do Mês presentes tanto na tabela Invoice quanto na tabela Calendario, devendo ser removidas da tabela Invoice para evitar inconsistência de Time Intelligence. O segundo é a necessidade de validação da fórmula da coluna LineTotal na tabela InvoiceLine, para confirmar se o valor de desconto está sendo corretamente subtraído no cálculo de receita por linha.
+
+
+### Medidas DAX — Dashboard 1 "Vendas Gerais"
+
+Todas as medidas foram organizadas em uma tabela dedicada, #Medidas.
+
+Receita Total soma o valor final vendido (LineTotal). Qtd Faixas Vendidas soma as quantidades. Qtd Faturas e Qtd Clientes Ativos contam faturas e clientes distintos. Ticket Medio e Receita Media por Cliente dividem a receita total pela quantidade de faturas e de clientes, respectivamente.
+
+Usando a tabela Calendario, foram criadas medidas de tempo: Receita Mes Anterior e Receita Ano Anterior trazem a receita de períodos comparativos, usadas para calcular Variacao MoM e Variacao YoY em percentual. Receita YTD acumula a receita desde o início do ano, e Receita Acumulada 12 Meses soma os últimos doze meses corridos.
+
+Top Genero e Top Artista identificam o gênero e artista com maior receita no filtro atual. Ranking Genero e Ranking Artista atribuem posição a cada um com base na receita.
+
+% Receita do Genero e % Receita do Pais calculam a participação de cada item no total geral, ignorando o filtro do próprio campo.
+
+Qtd Paises Ativos conta países com vendas registradas, e Receita Pais Top1 traz a receita do país líder em faturamento._
+
+<image src = "">
+  
 #### Dashboard Vendas Gerais
 
 <image src = "">
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Dashboard Clientes & RFM
 

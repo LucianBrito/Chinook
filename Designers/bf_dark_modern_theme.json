@@ -1,0 +1,151 @@
+{
+  "name": "BF Dark Modern",
+
+  "dataColors": [
+    "#00E5FF",
+    "#8A2BE2",
+    "#246BFF",
+    "#FF2BD6",
+    "#0A1038",
+    "#C04CFF",
+    "#FF9F43"
+  ],
+
+  "background": "#030713",
+  "foreground": "#F5F7FF",
+  "tableAccent": "#00E5FF",
+
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#FFFFFF"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#D6DAF5"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#FFFFFF"
+    }
+  },
+
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "show": true,
+            "fontFamily": "Segoe UI Semibold",
+            "fontSize": 12,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "show": true,
+            "titleColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#D6DAF5"
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#D6DAF5"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": "#202A55"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#D6DAF5"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": "#202A55"
+              }
+            }
+          }
+        ],
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "background": [
+          {
+            "show": false,
+            "transparency": 100
+          }
+        ]
+      }
+    },
+
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#D6DAF5"
+              }
+            }
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#D6DAF5"
+              }
+            }
+          }
+        ],
+        "calloutValue": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

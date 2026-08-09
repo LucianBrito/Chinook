@@ -116,61 +116,61 @@ Quantity (INT): Quantidade vendida
 Vamos entender a estrutura, qualidade e distribuição dos dados.
 
 *  Contagem de registros por tabela
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Contagem%20de%20registros%20por%20tabela.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Período de dados disponível (range de datas)
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Periodo%20de%20dados%20disponivel.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Verificação de valores nulos/ausentes em campos críticos
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Verifica%C3%A7%C3%A3o%20de%20valores%20nulos%20ou%20ausentes%20em%20campos%20cr%C3%ADticos.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Verificação de duplicidade de faturas
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Verifica%C3%A7%C3%A3o%20de%20duplicidade%20de%20fatura.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Estatísticas descritivas — Valor das faturas (Total)
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Estatistica%20descritiva.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Distribuição de faturas por faixa de valor (histograma simplificado)
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Distribui%C3%A7%C3%A3o%20de%20Faturas%20por%20Faixa%20de%20Valor.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Quantidade de países distintos e concentração de vendas
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Quantidade%20de%20Paises%20distintos%20e%20concentra%C3%A7%C3%A3o%20de%20vendas.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Verificação de faixas sem gênero ou sem preço (qualidade do catálogo)
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Verifica%C3%A7%C3%A3o%20de%20faixas%20sem%20g%C3%AAnero%20ou%20sem%20pre%C3%A7o.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 *  Quantidade de faixas por gênero (visão geral do catálogo)
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Quantidade%20de%20Faixas%20por%20Genero.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Preço médio, mínimo e máximo por gênero (checar consistência de preços)
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Pre%C3%A7o%20medio%2C%20minimo%20e%20maximo%20por%20g%C3%AAnero.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Clientes sem nenhuma compra (potencial churn desde o início)
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Clientes%20sem%20nenhuma%20compra.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Verificação de integridade — InvoiceLine sem Invoice correspondente
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Verifica%C3%A7%C3%A3o%20de%20integridade%20-%20invoiceline%20sem%20invoice.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Consistência entre Total da fatura e soma dos itens (InvoiceLine)
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Consistencia%20entre%20total%20da%20fatura%20e%20soma%20dos%20itens.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 ### Queries Principais
 
 * Vendas Gerais: essa query junta faturas, itens vendidos e gêneros musicais, agrupando tudo por ano, mês, país e gênero. Para cada combinação, calcula quanto de receita foi gerado, o valor médio das compras, quantas faturas e clientes existiram, e qual o peso daquele grupo dentro da receita total da loja. O resultado mostra a evolução das vendas no tempo e onde/o quê está gerando mais dinheiro.
 
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Query%20Canal%20de%20Vendas.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Clientes & RFM: Primeiro calculamos, para cada cliente, há quanto tempo comprou pela última vez, quantas vezes comprou e quanto gastou no total. Depois, dividimos os clientes em quatro grupos para cada uma dessas três métricas, dando uma nota de 1 a 4. Juntando as três notas, classificamos cada cliente em categorias como "Campeão", "Fiel", "Em Risco" ou "Perdido", facilitando ações de marketing e retenção direcionadas.
 
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Query%20Clientes%20%26%20RFM.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Catálogo/Produto: Essa query analisa o catálogo de produtos (faixas, álbuns, artistas e gêneros), calculando receita, quantidade vendida e preço médio de cada item. Também mostra o percentual que cada faixa representa dentro do seu gênero e cria um ranking das faixas mais vendidas por gênero, ajudando a identificar quais produtos realmente sustentam cada categoria musical.
 
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Query%20Cat%C3%A1logo%20x%20Produto.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 * Performance Gerencial: Essa query avalia o desempenho de cada funcionário com base nos clientes que ele atende. Calcula quantos clientes estão na carteira, quanto de receita esses clientes geraram, o ticket médio e a receita média por cliente. Também cria um ranking geral entre os funcionários, apoiando decisões de gestão como bonificação e redistribuição de carteira.
 
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+<a href="https://github.com/LucianBrito/Chinook/blob/main/SQL/Query%20Performance%20Gerencial.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
 ### Etapa de Transformação de Dados, Power Query ( Dashboard com foco em Vendas Gerais)
 
@@ -198,6 +198,7 @@ Foi criada uma tabela Calendario independente, gerada via consulta em branco no 
 
 * Dois pontos de atenção foram identificados nesta etapa e precisam de ajuste antes do avanço para as medidas DAX. O primeiro é a duplicidade de informação temporal, com as colunas Ano e Nome do Mês presentes tanto na tabela Invoice quanto na tabela Calendario, devendo ser removidas da tabela Invoice para evitar inconsistência de Time Intelligence. O segundo é a necessidade de validação da fórmula da coluna LineTotal na tabela InvoiceLine, para confirmar se o valor de desconto está sendo corretamente subtraído no cálculo de receita por linha.
 
+<image src = "https://github.com/LucianBrito/Chinook/blob/main/Prints/Schema.png">
 
 ### Medidas DAX — Dashboard 1 "Vendas Gerais"
 
@@ -213,11 +214,11 @@ Todas as medidas foram organizadas em uma tabela dedicada, #Medidas.
 
 * Qtd Paises Ativos conta países com vendas registradas, e Receita Pais Top1 traz a receita do país líder em faturamento._
 
-<image src = "">
+<image src = "https://github.com/LucianBrito/Chinook/blob/main/Prints/Medidas%20Dax%20Criadas.png">
   
 #### Dashboard Vendas Gerais
 
-<image src = "">
+<image src = "https://github.com/LucianBrito/Chinook/blob/main/Prints/Sales%20Overview.png">
 
 
 

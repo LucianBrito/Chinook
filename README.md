@@ -220,77 +220,11 @@ Todas as medidas foram organizadas em uma tabela dedicada, #Medidas.
 
 <image src = "https://github.com/LucianBrito/Chinook/blob/main/Prints/Sales%20Overview.png">
 
-### ### Etapa de Transformação de Dados, Power Query ( Dashboard "Clientes & RFM" )
 
-Etapa: Importação e Tratamento de Dados
-Fonte: SQL Server (Chinook DB) Tabelas importadas: Customer, Invoice, Employee 
-
-#### Customer
-* Colunas removidas: Address, PostalCode, Phone, Fax, Company, State
-* Tratamentos: mesclagem FirstName+LastName → NomeCliente; nulos em Country tratados; colunas renomeadas para PT-BR
-* Colunas finais: CustomerId, NomeCliente, Pais, Cidade, SupportRepId, Email
-  
-#### Invoice
-* Colunas removidas: BillingAddress, BillingCity, BillingState, BillingPostalCode (redundantes)
-* Tratamentos: tipo de dado InvoiceDate ajustado para Data; linhas com Total nulo/zero removidas; coluna AnoMes criada
-* Colunas finais: InvoiceId, CustomerId, InvoiceDate, Total, AnoMes
-  
-#### Employee 
-* Colunas removidas: Address, City, State, Country, PostalCode, Phone, Fax, Email, BirthDate, HireDate, ReportsTo
-* Tratamentos: mesclagem FirstName+LastName → NomeFuncionario; Title renomeado para Cargo
-* Colunas finais: EmployeeId, NomeFuncionario, Cargo
-
-#### Validações de qualidade
-
-* CustomerId e InvoiceId sem duplicados
-* InvoiceDate sem nulos
-* Total sem nulos/negativos
-
-#### Relacionamentos criados
-
-Customer[CustomerId] 1:N Invoice[CustomerId]
-Employee[EmployeeId] 1:N Customer[SupportRepId]
-
-<image src = "">
-
-### Criação das Medidas RFM
-
-Objetivo: criar as medidas base e de score para a análise RFM (Recência, Frequência, Valor Monetário) dos clientes.
-
-Medidas base criadas:
-
-* Recencia: calcula o número de dias desde a última compra de cada cliente até a data de referência (última data disponível na base de faturas).
-* Frequencia: conta o número total de compras (invoices) realizadas por cliente.
-* ValorMonetario: soma o total gasto por cliente (valor total das invoices).
-* Medidas de score criadas (Score_R, Score_F, Score_M):
-
-Cada medida classifica os clientes em 5 grupos (quintis), atribuindo notas de 1 a 5.
-* Score_R: quanto menor a recência (compra mais recente), maior a nota.
-* Score_F: quanto maior a frequência de compras, maior a nota.
-* Score_M: quanto maior o valor monetário gasto, maior a nota.
-* Lógica aplicada: uso de RANKX para ranquear os clientes, dividindo o total de clientes em 5 faixas (quintis) e atribuindo a nota correspondente com base na posição do cliente no ranking.
-
-#### Medida complementar:
-* RFM_Score: concatenação das três notas (Score_R, Score_F, Score_M) formando um código único de 3 dígitos, usado posteriormente para segmentação dos clientes (ex: Campeões, Fiéis, Em Risco, etc).
 
 <image src = "">
 
 
-
-
-
-
-
-
-
-
-
-
-#### Dashboard Clientes & RFM
-
-<image src = "">
-
-#### Dashboard Catalogo/Produtos
 
 <image src = "">
 

@@ -222,8 +222,6 @@ Todas as medidas foram organizadas em uma tabela dedicada, #Medidas.
 
 
 
-<image src = "">
-
 
 
 <image src = "">
